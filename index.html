@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Palindrome Checker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: white;
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 12px 15px;
+      width: 280px;
+      font-size: 16px;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.9);
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #333;
+      background: #fff;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: #6a11cb;
+      background: linear-gradient(to right, #2575fc, #6a11cb);
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Palindrome Checker</h1>
+
+  <input type="text" id="inputText" placeholder="Enter a word or sentence" />
+  <button onclick="checkPalindrome()">Check</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkPalindrome() {
+      const input = document.getElementById("inputText").value;
+
+      // Remove spaces and convert to lowercase
+      const cleaned = input.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+
+      // Reverse the cleaned input
+      const reversed = cleaned.split('').reverse().join('');
+
+      // Check if palindrome
+      if (cleaned === reversed && cleaned !== "") {
+        document.getElementById("result").textContent = `"${input}" is a palindrome ✅`;
+      } else {
+        document.getElementById("result").textContent = `"${input}" is not a palindrome ❌`;
+      }
+    }
+  </script>
+
+</body>
+</html>
