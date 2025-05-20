@@ -86,13 +86,10 @@
     function checkPalindrome() {
       const input = document.getElementById("inputText").value;
 
-      // Remove spaces and convert to lowercase
       const cleaned = input.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
 
-      // Reverse the cleaned input
       const reversed = cleaned.split('').reverse().join('');
 
-      // Check if palindrome
       if (cleaned === reversed && cleaned !== "") {
         document.getElementById("result").textContent = `"${input}" is a palindrome ✅`;
       } else {
